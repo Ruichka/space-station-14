@@ -1,0 +1,45 @@
+﻿- type: gameMap
+  id: MicroStation
+  mapName: 'MicroStation'
+  mapPath: /Maps/Ruika/MicroStation.yml
+  minPlayers: 0
+  maxPlayers: 35
+  stations:
+    MicroStation:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_transit.yml
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Micro Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            CargoTechnician: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 1, 1 ]
+            ResearchAssistant: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            TechnicalAssistant: [ 1, 1 ]
+            MedicalIntern: [ 1, 1 ]
+            ServiceWorker: [ 1, 1 ]
+            SecurityCadet: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]

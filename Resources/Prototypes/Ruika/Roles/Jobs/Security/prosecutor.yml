@@ -1,0 +1,91 @@
+- type: entity
+  parent: IDCardStandard
+  id: ProsecutorIDCard
+  name: "ID-карта прокурора"
+  components:
+    - type: Sprite
+      sprite: /Textures/Ruika/Objects/Misc/id_cards.rsi
+      layers:
+        - state: default
+        - state: idprosecutor
+    - type: Clothing
+      slots:
+      - idcard
+      sprite: /Textures/Ruika/Objects/Misc/id_cards.rsi
+    - type: PresetIdCard
+      job: Prosecutor
+
+- type: job
+  id: Prosecutor
+  name: "прокурор"
+  description: "Занимайтесь ведением дел и обвинением в судебных разбирательствах."
+  playTimeTracker: JobLawyer
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
+  startingGear: ProsecutorGear
+  icon: "JobIconProsecutor"
+  supervisors: job-supervisors-hos
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+
+- type: startingGear
+  id: ProsecutorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerRed
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsLaceup
+    id: ProsecutorPDA
+    ears: ClothingHeadsetSecurity
+    eyes: ClothingEyesGlassesSecurity
+    hands: ClothingHandsGlovesColorBlack
+    neck: ClothingNeckProsecutorBadge
+  inhand:
+    right hand: BriefcaseBrownFilled
+  innerclothingskirt: ClothingUniformJumpskirtLawyerRed
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: entity
+  parent: BasePDA
+  id: ProsecutorPDA
+  name: "КПК прокурора"
+  description: "Ваш отчёт о вскрытии... устарел."
+  components:
+  - type: Sprite
+    sprite: /Textures/Ruika/Objects/Devices/pda.rsi
+  - type: Pda
+    id: ProsecutorIDCard
+    state: pda-prosecutor
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+    accentVColor: "#A32D26"
+  - type: Icon
+    sprite: /Textures/Ruika/Objects/Devices/pda.rsi
+    state: pda-prosecutor
+
+- type: department
+  id: Security
+  description: department-Security-description
+  color: "#DE3A3A"
+  roles:
+  - HeadOfSecurity
+  - SecurityCadet
+  - SecurityOfficer
+  - Detective
+  - Warden
+  - Prosecutor
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckProsecutorBadge
+  name: "значок прокурора"
+  description: "Значок, показывающий, что его носитель является прокурором."
+  components:
+  - type: Sprite
+    sprite: /Textures/Ruika/Clothing/Neck/Misc/Prosecutor/prosecutorbadge.rsi
+  - type: Clothing
+    sprite: /Textures/Ruika/Clothing/Neck/Misc/prosecutorbadge.rsi
